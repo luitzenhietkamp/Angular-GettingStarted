@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
-  errorMessage: string;
+  errorMessage: '';
 
   _listFilter: string;
   get listFilter(): string {
