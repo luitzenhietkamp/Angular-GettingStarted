@@ -1,17 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
-import { StarComponent } from '../shared/star.component';
+import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductDetailGuard } from './product-detail.guard';
 import { ProductListComponent } from './product-list.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       {
@@ -19,13 +14,12 @@ import { ProductListComponent } from './product-list.component';
         canActivate: [ProductDetailGuard],
         component: ProductDetailComponent
       }
-    ])
+    ]),
+    SharedModule
   ],
   declarations: [
     ProductListComponent,
-    ProductDetailComponent,
-    ConvertToSpacesPipe,
-    StarComponent
+    ProductDetailComponent
   ]
 })
 export class ProductModule { }
